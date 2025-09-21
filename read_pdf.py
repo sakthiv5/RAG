@@ -3,7 +3,7 @@ from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Milvus
-from langchain_community.llms import Ollama
+from langchain_openai import ChatOpenAI
 from langchain.chains import RetrievalQA
 import os
 from dotenv import load_dotenv
@@ -61,18 +61,31 @@ results = retriever.get_relevant_documents(query)
 #for i, doc in enumerate(results):
     #print(f"\nResult {i+1} (from {doc.metadata['source']}):\n{doc.page_content[:500]}")
 
-# Ollama LLM for QA
-print ("calling ollama api")
-llm = Ollama(model="deepseek-r1:1.5b")  # you can also use "mistral", "gemma", etc.
+# OpenAI GPT-4o-mini for QA
+print("Initializing OpenAI GPT-4o-mini")
+try:
+    llm = ChatOpenAI(
+        model="gpt-4o-mini",
+        api_key=OPENAI_API_KEY,
+        temperature=0.1
+    )
+except Exception as e:
+    print(f"Error initializing OpenAI LLM: {e}")
+    raise
 
-qa_chain = RetrievalQA.from_chain_type(
-    llm=llm,
-    retriever=vectorstore.as_retriever(search_kwargs={"k": 3}),
-    return_source_documents=True
-)
+try:
+    qa_chain = RetrievalQA.from_chain_type(
+        llm=llm,
+        retriever=vectorstore.as_retriever(search_kwargs={"k": 3}),
+        return_source_documents=True
+    )
 
-query = "List all the acronyms in the document"
-result = qa_chain.invoke(query)
+    query = "List all the acronyms in the document"
+    result = qa_chain.invoke(query)
 
-print("Answer:", result["result"])
-print("Sources:", [doc.metadata["source"] for doc in result["source_documents"]])
+    print("Answer:", result["result"])
+    print("Sources:", [doc.metadata["source"] for doc in result["source_documents"]])
+    
+except Exception as e:
+    print(f"Error during query processing: {e}")
+    raise

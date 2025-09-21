@@ -1,0 +1,29 @@
+# Core Flask dependencies
+Flask==3.0.0
+Werkzeug==3.0.1
+
+# Existing RAG system dependencies
+docling>=1.0.0
+langchain>=0.1.0
+langchain-openai>=0.1.0
+langchain-community>=0.0.20
+python-dotenv>=1.0.0
+
+# New dependencies for enhanced functionality
+tiktoken>=0.5.0  # Token counting for token-based chunking
+sentence-transformers>=2.2.0  # For semantic chunking
+numpy>=1.24.0  # Required for embeddings operations
+scikit-learn>=1.3.0  # For similarity calculations in semantic chunking
+
+# Additional utility dependencies
+requests>=2.31.0  # For HTTP requests
+Jinja2>=3.1.0  # Template engine (Flask dependency)
+click>=8.1.0  # CLI support (Flask dependency)
+itsdangerous>=2.1.0  # Security utilities (Flask dependency)
+MarkupSafe>=2.1.0  # Template security (Flask dependency)
+
+# Development and testing (optional)
+pytest>=7.4.0
+pytest-flask>=1.3.0
+black>=23.0.0
+flake8>=6.0.0

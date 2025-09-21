@@ -1,0 +1,60 @@
+2025-09-21 20:30:39,608 - rag_application - INFO - Initializing RAG service...
+2025-09-21 20:30:39,626 - rag_application - INFO - Document processor initialized
+2025-09-21 20:30:42,560 - rag_application - INFO - Vector store manager initialized
+2025-09-21 20:30:42,613 - rag_application - INFO - OpenAI LLM initialized successfully
+2025-09-21 20:30:42,651 - rag_application - INFO - OpenAI embeddings initialized successfully
+2025-09-21 20:30:42,652 - rag_application - INFO - Loaded chunking config: semantic
+2025-09-21 20:30:42,653 - rag_application - INFO - RAG service initialization completed
+2025-09-21 20:30:49,904 - rag_application - WARNING - 404 error: http://127.0.0.1:5000/favicon.ico
+2025-09-21 20:31:20,685 - rag_application - INFO - Processing query: what is the essence of this document?...
+2025-09-21 20:31:20,686 - rag_application - INFO - Processing query: what is the essence of this document?...
+2025-09-21 20:31:20,689 - rag_application - WARNING - Vector store not available for query
+2025-09-21 20:31:20,690 - rag_application - WARNING - Query processing error: No documents have been processed yet. Please upload and process documents first.
+2025-09-21 20:31:39,022 - rag_application - INFO - Starting document reprocessing
+2025-09-21 20:31:39,023 - rag_application - INFO - Starting document reprocessing
+2025-09-21 20:31:39,024 - rag_application - ERROR - Error in clear_vector_store: TypeError: VectorStoreManager.clear_collection() missing 1 required positional argument: 'collection_name'
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\error_handler.py", line 250, in safe_execute
+    return func(*args, **kwargs)
+TypeError: VectorStoreManager.clear_collection() missing 1 required positional argument: 'collection_name'
+
+Error count for this type: 1
+2025-09-21 20:31:39,024 - rag_application - WARNING - Failed to clear vector store, continuing anyway
+2025-09-21 20:31:39,026 - rag_application - INFO - Converting PDF documents
+2025-09-21 20:34:06,082 - rag_application - INFO - Found 1 documents to process
+2025-09-21 20:34:06,083 - rag_application - INFO - Chunking documents with strategy: semantic
+2025-09-21 20:34:15,552 - rag_application - INFO - Created 31 chunks from 1 documents
+2025-09-21 20:34:15,557 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 20:34:15,559 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 1
+2025-09-21 20:34:56,287 - rag_application - INFO - Starting document reprocessing
+2025-09-21 20:34:56,288 - rag_application - INFO - Starting document reprocessing
+2025-09-21 20:34:56,288 - rag_application - ERROR - Error in clear_vector_store: TypeError: VectorStoreManager.clear_collection() missing 1 required positional argument: 'collection_name'
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\error_handler.py", line 250, in safe_execute
+    return func(*args, **kwargs)
+TypeError: VectorStoreManager.clear_collection() missing 1 required positional argument: 'collection_name'
+
+Error count for this type: 2
+2025-09-21 20:34:56,289 - rag_application - WARNING - Failed to clear vector store, continuing anyway
+2025-09-21 20:34:56,290 - rag_application - INFO - Converting PDF documents
+2025-09-21 20:36:43,516 - rag_application - INFO - Found 1 documents to process
+2025-09-21 20:36:43,517 - rag_application - INFO - Chunking documents with strategy: semantic
+2025-09-21 20:36:51,556 - rag_application - INFO - Created 31 chunks from 1 documents
+2025-09-21 20:36:51,562 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 20:36:51,565 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 2
+2025-09-21 20:37:51,241 - rag_application - INFO - Processing query: what is the essence of this document?...
+2025-09-21 20:37:51,243 - rag_application - INFO - Processing query: what is the essence of this document?...
+2025-09-21 20:37:51,244 - rag_application - WARNING - Vector store not available for query
+2025-09-21 20:37:51,245 - rag_application - WARNING - Query processing error: No documents have been processed yet. Please upload and process documents first.

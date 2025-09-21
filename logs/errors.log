@@ -1,0 +1,30 @@
+2025-09-21 20:31:39,024 - rag_application - ERROR - Error in clear_vector_store: TypeError: VectorStoreManager.clear_collection() missing 1 required positional argument: 'collection_name'
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\error_handler.py", line 250, in safe_execute
+    return func(*args, **kwargs)
+TypeError: VectorStoreManager.clear_collection() missing 1 required positional argument: 'collection_name'
+
+Error count for this type: 1
+2025-09-21 20:34:15,557 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 20:34:15,559 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 1
+2025-09-21 20:34:56,288 - rag_application - ERROR - Error in clear_vector_store: TypeError: VectorStoreManager.clear_collection() missing 1 required positional argument: 'collection_name'
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\error_handler.py", line 250, in safe_execute
+    return func(*args, **kwargs)
+TypeError: VectorStoreManager.clear_collection() missing 1 required positional argument: 'collection_name'
+
+Error count for this type: 2
+2025-09-21 20:36:51,562 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 20:36:51,565 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 2

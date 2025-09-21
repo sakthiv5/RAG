@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG System - Document Q&A</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>RAG Document Q&A System</h1>
+            <p>Ask questions about your documents and get AI-powered answers with source attribution.</p>
+        </header>
+
+        <main>
+            <!-- Question Input Section -->
+            <section class="query-section">
+                <h2>Ask a Question</h2>
+                <form id="query-form">
+                    <div class="input-group">
+                        <textarea id="question-input" placeholder="Enter your question here..." rows="3" required></textarea>
+                        <button type="submit" id="submit-btn">Ask Question</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="results-section" style="display: none;">
+                <h2>Answer</h2>
+                <div id="answer-content"></div>
+                <div id="sources-content"></div>
+            </section>
+
+            <!-- Chunking Strategy Configuration -->
+            <section class="config-section">
+                <h2>Chunking Strategy Configuration</h2>
+                <div class="strategy-selector">
+                    <label for="strategy-dropdown">Select Chunking Strategy:</label>
+                    <select id="strategy-dropdown">
+                        <option value="recursive">Recursive Character Text Splitter</option>
+                        <option value="semantic">Semantic Chunking</option>
+                        <option value="token">Token-based Chunking</option>
+                        <option value="paragraph">Paragraph-based Chunking</option>
+                        <option value="hybrid">Hybrid Chunking</option>
+                    </select>
+                </div>
+
+                <!-- Dynamic configuration panels -->
+                <div id="strategy-config-panel">
+                    <!-- Recursive Character Strategy Config -->
+                    <div id="recursive-config" class="strategy-config" style="display: block;">
+                        <h3>Recursive Character Text Splitter Configuration</h3>
+                        <div class="config-group">
+                            <label for="recursive-chunk-size">Chunk Size:</label>
+                            <input type="number" id="recursive-chunk-size" value="1000" min="100" max="10000" required>
+                            <small>Number of characters per chunk (100-10000)</small>
+                        </div>
+                        <div class="config-group">
+                            <label for="recursive-chunk-overlap">Chunk Overlap:</label>
+                            <input type="number" id="recursive-chunk-overlap" value="200" min="0" max="1000" required>
+                            <small>Number of overlapping characters between chunks</small>
+                        </div>
+                        <div class="config-group">
+                            <label for="recursive-separators">Separators (comma-separated):</label>
+                            <input type="text" id="recursive-separators" value="\n\n, \n, . , ? , ! , ; , :" placeholder="Enter separators">
+                            <small>Text separators in order of preference</small>
+                        </div>
+                    </div>
+
+                    <!-- Semantic Chunking Strategy Config -->
+                    <div id="semantic-config" class="strategy-config" style="display: none;">
+                        <h3>Semantic Chunking Configuration</h3>
+                        <div class="config-group">
+                            <label for="semantic-similarity-threshold">Similarity Threshold:</label>
+                            <input type="number" id="semantic-similarity-threshold" value="0.8" min="0.1" max="1.0" step="0.1" required>
+                            <small>Similarity threshold for semantic boundaries (0.1-1.0)</small>
+                        </div>
+                        <div class="config-group">
+                            <label for="semantic-min-chunk-size">Minimum Chunk Size:</label>
+                            <input type="number" id="semantic-min-chunk-size" value="100" min="50" max="1000" required>
+                            <small>Minimum number of characters per chunk</small>
+                        </div>
+                        <div class="config-group">
+                            <label for="semantic-max-chunk-size">Maximum Chunk Size:</label>
+                            <input type="number" id="semantic-max-chunk-size" value="2000" min="500" max="5000" required>
+                            <small>Maximum number of characters per chunk</small>
+                        </div>
+                    </div>
+
+                    <!-- Token-based Strategy Config -->
+                    <div id="token-config" class="strategy-config" style="display: none;">
+                        <h3>Token-based Chunking Configuration</h3>
+                        <div class="config-group">
+                            <label for="token-max-tokens">Max Tokens per Chunk:</label>
+                            <input type="number" id="token-max-tokens" value="512" min="100" max="2048" required>
+                            <small>Maximum number of tokens per chunk (100-2048)</small>
+                        </div>
+                        <div class="config-group">
+                            <label for="token-model">Tokenizer Model:</label>
+                            <select id="token-model" required>
+                                <option value="gpt-4">GPT-4</option>
+                                <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                                <option value="text-davinci-003">Text Davinci 003</option>
+                            </select>
+                            <small>Model to use for tokenization</small>
+                        </div>
+                        <div class="config-group">
+                            <label for="token-overlap">Token Overlap:</label>
+                            <input type="number" id="token-overlap" value="50" min="0" max="200" required>
+                            <small>Number of overlapping tokens between chunks</small>
+                        </div>
+                    </div>
+
+                    <!-- Paragraph-based Strategy Config -->
+                    <div id="paragraph-config" class="strategy-config" style="display: none;">
+                        <h3>Paragraph-based Chunking Configuration</h3>
+                        <div class="config-group">
+                            <label for="paragraph-min-size">Minimum Paragraph Size:</label>
+                            <input type="number" id="paragraph-min-size" value="100" min="50" max="500" required>
+                            <small>Minimum characters required for a paragraph chunk</small>
+                        </div>
+                        <div class="config-group">
+                            <label for="paragraph-max-size">Maximum Paragraph Size:</label>
+                            <input type="number" id="paragraph-max-size" value="2000" min="500" max="5000" required>
+                            <small>Maximum characters allowed in a paragraph chunk</small>
+                        </div>
+                        <div class="config-group">
+                            <label for="paragraph-merge-threshold">Merge Threshold:</label>
+                            <input type="number" id="paragraph-merge-threshold" value="200" min="50" max="500" required>
+                            <small>Merge small paragraphs below this threshold</small>
+                        </div>
+                    </div>
+
+                    <!-- Hybrid Strategy Config -->
+                    <div id="hybrid-config" class="strategy-config" style="display: none;">
+                        <h3>Hybrid Chunking Configuration</h3>
+                        <div class="config-group">
+                            <label for="hybrid-primary-strategy">Primary Strategy:</label>
+                            <select id="hybrid-primary-strategy" required>
+                                <option value="recursive">Recursive Character</option>
+                                <option value="semantic">Semantic</option>
+                                <option value="paragraph">Paragraph-based</option>
+                            </select>
+                            <small>Primary chunking strategy to use</small>
+                        </div>
+                        <div class="config-group">
+                            <label for="hybrid-secondary-strategy">Secondary Strategy:</label>
+                            <select id="hybrid-secondary-strategy" required>
+                                <option value="token">Token-based</option>
+                                <option value="semantic">Semantic</option>
+                                <option value="recursive">Recursive Character</option>
+                            </select>
+                            <small>Secondary strategy for refinement</small>
+                        </div>
+                        <div class="config-group">
+                            <label for="hybrid-chunk-size">Target Chunk Size:</label>
+                            <input type="number" id="hybrid-chunk-size" value="1000" min="500" max="3000" required>
+                            <small>Target size for final chunks</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config-actions">
+                    <button id="save-config-btn">Save Configuration</button>
+                    <button id="reset-config-btn">Reset to Defaults</button>
+                    <div id="config-status" class="status-message" style="display: none;"></div>
+                </div>
+            </section>
+
+            <!-- Document Reprocessing Section -->
+            <section class="reprocess-section">
+                <h2>Document Reprocessing</h2>
+                <p>Reprocess documents with the current chunking strategy settings. This will clear the existing vector database and rebuild it with new chunks.</p>
+                
+                <div class="reprocess-info">
+                    <div class="info-item">
+                        <strong>Current Strategy:</strong> <span id="current-strategy-display">Recursive Character Text Splitter</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Documents Found:</strong> <span id="documents-count">Loading...</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Last Processed:</strong> <span id="last-processed">Never</span>
+                    </div>
+                </div>
+
+                <div class="reprocess-actions">
+                    <button id="reprocess-btn" class="reprocess-button">
+                        <span class="button-text">Reprocess Documents</span>
+                        <span class="button-spinner" style="display: none;">
+                            <div class="spinner"></div>
+                        </span>
+                    </button>
+                    <button id="cancel-reprocess-btn" class="cancel-button" style="display: none;">Cancel</button>
+                </div>
+
+                <div id="reprocess-status" class="reprocess-status" style="display: none;">
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span id="progress-percentage">0%</span>
+                            <span id="progress-details">Initializing...</span>
+                        </div>
+                    </div>
+                    <div id="status-message" class="status-message"></div>
+                    <div id="processing-details" class="processing-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Documents Processed:</span>
+                            <span id="docs-processed">0</span> / <span id="total-docs">0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Chunks Created:</span>
+                            <span id="chunks-created">0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Elapsed Time:</span>
+                            <span id="elapsed-time">00:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="reprocess-result" class="reprocess-result" style="display: none;">
+                    <div class="result-content">
+                        <div class="result-icon">
+                            <span id="result-icon-success" class="success-icon" style="display: none;">✓</span>
+                            <span id="result-icon-error" class="error-icon" style="display: none;">✗</span>
+                        </div>
+                        <div class="result-message">
+                            <h4 id="result-title"></h4>
+                            <p id="result-description"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Confirmation Modal -->
+            <div id="confirmation-modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Confirm Document Reprocessing</h3>
+                        <button class="modal-close" id="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Warning:</strong> This action will:</p>
+                        <ul>
+                            <li>Clear all existing document chunks from the vector database</li>
+                            <li>Reprocess all PDF documents with the current chunking strategy</li>
+                            <li>Rebuild the vector embeddings (this may take several minutes)</li>
+                        </ul>
+                        <p>Are you sure you want to continue?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="confirm-reprocess" class="confirm-button">Yes, Reprocess Documents</button>
+                        <button id="cancel-modal" class="cancel-button">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

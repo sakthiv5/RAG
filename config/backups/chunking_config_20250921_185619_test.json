@@ -1,0 +1,15 @@
+{
+  "strategy": "semantic",
+  "chunk_size": 800,
+  "chunk_overlap": 100,
+  "separators": [
+    "\n##",
+    "\n#",
+    "\n- ",
+    "\n",
+    " "
+  ],
+  "similarity_threshold": 0.75,
+  "max_tokens": null,
+  "tokenizer_model": null
+}

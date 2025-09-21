@@ -1,0 +1,69 @@
+# Git and version control
+.git
+.gitignore
+
+# Python virtual environment
+rag/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Documentation and development files
+*.md
+!README.md
+DEPLOYMENT.md
+SETUP_GUIDE.md
+CONFIG_MANAGEMENT.md
+
+# Test files
+tests/
+pytest.ini
+.coverage
+htmlcov/
+
+# Development configuration
+.env.example
+config/production.env
+
+# Backup files
+config/backups/
+*.backup
+*.bak
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Docker files (avoid recursion)
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Kiro specific files
+.kiro/
