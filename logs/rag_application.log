@@ -58,3 +58,224 @@ Error count for this type: 2
 2025-09-21 20:37:51,243 - rag_application - INFO - Processing query: what is the essence of this document?...
 2025-09-21 20:37:51,244 - rag_application - WARNING - Vector store not available for query
 2025-09-21 20:37:51,245 - rag_application - WARNING - Query processing error: No documents have been processed yet. Please upload and process documents first.
+2025-09-21 21:08:20,410 - rag_application - INFO - Initializing RAG service...
+2025-09-21 21:08:20,431 - rag_application - INFO - Document processor initialized
+2025-09-21 21:08:24,555 - rag_application - INFO - Vector store manager initialized
+2025-09-21 21:08:24,635 - rag_application - INFO - OpenAI LLM initialized successfully
+2025-09-21 21:08:24,688 - rag_application - INFO - OpenAI embeddings initialized successfully
+2025-09-21 21:08:24,691 - rag_application - INFO - Loaded chunking config: semantic
+2025-09-21 21:08:24,691 - rag_application - INFO - RAG service initialization completed
+2025-09-21 21:15:08,415 - rag_application - INFO - Processing query: summarise this document for me...
+2025-09-21 21:15:08,416 - rag_application - INFO - Processing query: summarise this document for me...
+2025-09-21 21:15:08,447 - rag_application - WARNING - Vector store not available for query
+2025-09-21 21:15:08,457 - rag_application - WARNING - Query processing error: No documents have been processed yet. Please upload and process documents first.
+2025-09-21 21:15:15,558 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:15:15,561 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:15:15,590 - rag_application - ERROR - Error in clear_vector_store: TypeError: VectorStoreManager.clear_collection() missing 1 required positional argument: 'collection_name'
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\error_handler.py", line 250, in safe_execute
+    return func(*args, **kwargs)
+TypeError: VectorStoreManager.clear_collection() missing 1 required positional argument: 'collection_name'
+
+Error count for this type: 1
+2025-09-21 21:15:15,601 - rag_application - WARNING - Failed to clear vector store, continuing anyway
+2025-09-21 21:15:15,603 - rag_application - INFO - Converting PDF documents
+2025-09-21 21:20:33,046 - rag_application - INFO - Initializing RAG service...
+2025-09-21 21:20:33,079 - rag_application - INFO - Document processor initialized
+2025-09-21 21:20:33,765 - rag_application - INFO - Vector store manager initialized
+2025-09-21 21:20:33,801 - rag_application - INFO - OpenAI LLM initialized successfully
+2025-09-21 21:20:33,837 - rag_application - INFO - OpenAI embeddings initialized successfully
+2025-09-21 21:20:33,837 - rag_application - INFO - Loaded chunking config: semantic
+2025-09-21 21:20:33,841 - rag_application - INFO - RAG service initialization completed
+2025-09-21 21:20:40,221 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:20:40,227 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:20:40,230 - rag_application - WARNING - Failed to clear vector store, continuing anyway
+2025-09-21 21:20:40,230 - rag_application - INFO - Converting PDF documents
+2025-09-21 21:23:16,994 - rag_application - INFO - Found 1 documents to process
+2025-09-21 21:23:16,994 - rag_application - INFO - Chunking documents with strategy: semantic
+2025-09-21 21:23:25,526 - rag_application - INFO - Created 31 chunks from 1 documents
+2025-09-21 21:23:25,529 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 21:23:25,529 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 1
+2025-09-21 21:30:23,241 - rag_application - INFO - Initializing RAG service...
+2025-09-21 21:30:23,255 - rag_application - INFO - Document processor initialized
+2025-09-21 21:30:23,666 - rag_application - INFO - Vector store manager initialized
+2025-09-21 21:30:23,700 - rag_application - INFO - OpenAI LLM initialized successfully
+2025-09-21 21:30:23,730 - rag_application - INFO - OpenAI embeddings initialized successfully
+2025-09-21 21:30:23,732 - rag_application - INFO - Loaded chunking config: semantic
+2025-09-21 21:30:23,733 - rag_application - INFO - RAG service initialization completed
+2025-09-21 21:30:42,199 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:30:42,199 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:30:42,914 - rag_application - INFO - Converting PDF documents
+2025-09-21 21:32:47,584 - rag_application - INFO - Found 1 documents to process
+2025-09-21 21:32:47,584 - rag_application - INFO - Chunking documents with strategy: semantic
+2025-09-21 21:32:54,731 - rag_application - INFO - Created 31 chunks from 1 documents
+2025-09-21 21:32:54,735 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 21:32:54,737 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 1
+2025-09-21 21:34:50,110 - rag_application - INFO - Initializing RAG service...
+2025-09-21 21:34:50,131 - rag_application - INFO - Document processor initialized
+2025-09-21 21:34:50,586 - rag_application - INFO - Vector store manager initialized
+2025-09-21 21:34:50,625 - rag_application - INFO - OpenAI LLM initialized successfully
+2025-09-21 21:34:50,659 - rag_application - INFO - OpenAI embeddings initialized successfully
+2025-09-21 21:34:50,660 - rag_application - INFO - Loaded chunking config: semantic
+2025-09-21 21:34:50,661 - rag_application - INFO - RAG service initialization completed
+2025-09-21 21:35:02,804 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:35:02,804 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:35:03,001 - rag_application - INFO - Converting PDF documents
+2025-09-21 21:35:05,934 - rag_application - WARNING - 404 error: http://127.0.0.1:5000/.well-known/appspecific/com.chrome.devtools.json
+2025-09-21 21:37:03,445 - rag_application - INFO - Found 1 documents to process
+2025-09-21 21:37:03,446 - rag_application - INFO - Chunking documents with strategy: semantic
+2025-09-21 21:37:10,710 - rag_application - INFO - Created 31 chunks from 1 documents
+2025-09-21 21:37:10,714 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 21:37:10,714 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 1
+2025-09-21 21:41:35,204 - rag_application - INFO - Initializing RAG service...
+2025-09-21 21:41:35,217 - rag_application - INFO - Document processor initialized
+2025-09-21 21:41:35,610 - rag_application - INFO - Vector store manager initialized
+2025-09-21 21:41:35,641 - rag_application - INFO - OpenAI LLM initialized successfully
+2025-09-21 21:41:35,676 - rag_application - INFO - OpenAI embeddings initialized successfully
+2025-09-21 21:41:35,676 - rag_application - INFO - Loaded chunking config: semantic
+2025-09-21 21:41:35,682 - rag_application - INFO - RAG service initialization completed
+2025-09-21 21:41:40,506 - rag_application - WARNING - 404 error: http://127.0.0.1:5000/.well-known/appspecific/com.chrome.devtools.json
+2025-09-21 21:42:07,400 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:42:07,400 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:42:07,766 - rag_application - INFO - Converting PDF documents
+2025-09-21 21:43:57,665 - rag_application - INFO - Found 1 documents to process
+2025-09-21 21:43:57,665 - rag_application - INFO - Chunking documents with strategy: semantic
+2025-09-21 21:44:03,913 - rag_application - INFO - Created 31 chunks from 1 documents
+2025-09-21 21:44:03,915 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 21:44:03,916 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 1
+2025-09-21 21:49:07,302 - rag_application - INFO - Initializing RAG service...
+2025-09-21 21:49:07,338 - rag_application - INFO - Document processor initialized
+2025-09-21 21:49:08,016 - rag_application - INFO - Vector store manager initialized
+2025-09-21 21:49:08,064 - rag_application - INFO - OpenAI LLM initialized successfully
+2025-09-21 21:49:08,112 - rag_application - INFO - OpenAI embeddings initialized successfully
+2025-09-21 21:49:08,112 - rag_application - INFO - Loaded chunking config: semantic
+2025-09-21 21:49:08,115 - rag_application - INFO - RAG service initialization completed
+2025-09-21 21:49:16,302 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:49:16,302 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:49:16,634 - rag_application - INFO - Converting PDF documents
+2025-09-21 21:51:21,959 - rag_application - INFO - Found 1 documents to process
+2025-09-21 21:51:21,959 - rag_application - INFO - Chunking documents with strategy: semantic
+2025-09-21 21:51:28,098 - rag_application - INFO - Created 31 chunks from 1 documents
+2025-09-21 21:51:33,693 - rag_application - INFO - Successfully reprocessed 1 documents into 31 chunks
+2025-09-21 21:51:33,693 - rag_application - INFO - Document reprocessing completed successfully
+2025-09-21 21:53:15,422 - rag_application - INFO - Processing query: what are the acronyms used in the documents?...
+2025-09-21 21:53:15,422 - rag_application - INFO - Processing query: what are the acronyms used in the documents?...
+2025-09-21 21:53:15,426 - rag_application - WARNING - Vector store not available for query
+2025-09-21 21:53:15,426 - rag_application - WARNING - Query processing error: No documents have been processed yet. Please upload and process documents first.
+2025-09-21 21:56:48,924 - rag_application - INFO - Initializing RAG service...
+2025-09-21 21:56:48,931 - rag_application - INFO - Document processor initialized
+2025-09-21 21:56:49,369 - rag_application - INFO - Vector store manager initialized
+2025-09-21 21:56:49,405 - rag_application - INFO - OpenAI LLM initialized successfully
+2025-09-21 21:56:49,438 - rag_application - INFO - OpenAI embeddings initialized successfully
+2025-09-21 21:56:49,442 - rag_application - INFO - Loaded chunking config: semantic
+2025-09-21 21:56:49,444 - rag_application - INFO - RAG service initialization completed
+2025-09-21 21:57:08,011 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:57:08,011 - rag_application - INFO - Starting document reprocessing
+2025-09-21 21:57:08,306 - rag_application - INFO - Converting PDF documents
+2025-09-21 21:59:08,267 - rag_application - INFO - Found 1 documents to process
+2025-09-21 21:59:08,267 - rag_application - INFO - Chunking documents with strategy: semantic
+2025-09-21 21:59:14,382 - rag_application - INFO - Created 31 chunks from 1 documents
+2025-09-21 21:59:20,101 - rag_application - INFO - Successfully reprocessed 1 documents into 31 chunks
+2025-09-21 21:59:20,101 - rag_application - INFO - Document reprocessing completed successfully
+2025-09-21 22:01:25,702 - rag_application - INFO - Processing query: what are advantages of containers?...
+2025-09-21 22:01:25,702 - rag_application - INFO - Processing query: what are advantages of containers?...
+2025-09-21 22:01:30,944 - rag_application - INFO - Query processed successfully in 5.24s
+2025-09-21 22:01:30,946 - rag_application - INFO - Query processed successfully in 5.24s
+2025-09-21 22:03:03,639 - rag_application - INFO - Updating chunking config: strategy=paragraph
+2025-09-21 22:03:03,640 - rag_application - INFO - Updating chunking config: strategy=paragraph
+2025-09-21 22:03:03,640 - rag_application - INFO - Saved chunking config to config/chunking_config.json
+2025-09-21 22:03:03,640 - rag_application - WARNING - Failed to save chunking config to file
+2025-09-21 22:03:03,643 - rag_application - INFO - Chunking configuration updated successfully: paragraph
+2025-09-21 22:03:03,643 - rag_application - INFO - Chunking configuration updated successfully: paragraph
+2025-09-21 22:03:06,562 - rag_application - INFO - Starting document reprocessing
+2025-09-21 22:03:06,562 - rag_application - INFO - Starting document reprocessing
+2025-09-21 22:03:06,611 - rag_application - INFO - Converting PDF documents
+2025-09-21 22:05:20,296 - rag_application - INFO - Found 1 documents to process
+2025-09-21 22:05:20,298 - rag_application - INFO - Chunking documents with strategy: paragraph
+2025-09-21 22:05:20,303 - rag_application - INFO - Created 15 chunks from 1 documents
+2025-09-21 22:05:25,832 - rag_application - INFO - Successfully reprocessed 1 documents into 15 chunks
+2025-09-21 22:05:25,834 - rag_application - INFO - Document reprocessing completed successfully
+2025-09-21 22:05:37,725 - rag_application - INFO - Processing query: what are advantages of containers?...
+2025-09-21 22:05:37,725 - rag_application - INFO - Processing query: what are advantages of containers?...
+2025-09-21 22:05:44,187 - rag_application - INFO - Query processed successfully in 6.46s
+2025-09-21 22:05:44,187 - rag_application - INFO - Query processed successfully in 6.46s
+2025-09-21 22:07:18,353 - rag_application - INFO - Processing query: when was this document updated? mention the date....
+2025-09-21 22:07:18,353 - rag_application - INFO - Processing query: when was this document updated? mention the date....
+2025-09-21 22:07:20,696 - rag_application - INFO - Query processed successfully in 2.34s
+2025-09-21 22:07:20,696 - rag_application - INFO - Query processed successfully in 2.34s
+2025-09-21 22:07:45,123 - rag_application - INFO - Processing query: How many times this document was updated? mention the date....
+2025-09-21 22:07:45,123 - rag_application - INFO - Processing query: How many times this document was updated? mention the date....
+2025-09-21 22:07:48,134 - rag_application - INFO - Query processed successfully in 3.01s
+2025-09-21 22:07:48,134 - rag_application - INFO - Query processed successfully in 3.01s
+2025-09-21 22:08:12,677 - rag_application - INFO - Processing query: How many times this document was updated? mention the dates, include from start....
+2025-09-21 22:08:12,677 - rag_application - INFO - Processing query: How many times this document was updated? mention the dates, include from start....
+2025-09-21 22:08:16,004 - rag_application - INFO - Query processed successfully in 3.33s
+2025-09-21 22:08:16,004 - rag_application - INFO - Query processed successfully in 3.33s
+2025-09-21 22:08:39,331 - rag_application - INFO - Processing query: How many times this document was updated? mention the dates and summary. include from start....
+2025-09-21 22:08:39,334 - rag_application - INFO - Processing query: How many times this document was updated? mention the dates and summary. include from start....
+2025-09-21 22:08:44,274 - rag_application - INFO - Query processed successfully in 4.94s
+2025-09-21 22:08:44,274 - rag_application - INFO - Query processed successfully in 4.94s
+2025-09-21 22:09:39,116 - rag_application - INFO - Processing query: how many times does the word AWS Batch are in the document? mention the exact count and the page num...
+2025-09-21 22:09:39,119 - rag_application - INFO - Processing query: how many times does the word AWS Batch are in the document? mention the exact count and the page num...
+2025-09-21 22:09:40,875 - rag_application - INFO - Query processed successfully in 1.76s
+2025-09-21 22:09:40,875 - rag_application - INFO - Query processed successfully in 1.76s
+2025-09-21 22:09:44,142 - rag_application - INFO - Processing query: how many times does the word AWS Batch are in the document? mention the exact count and the page num...
+2025-09-21 22:09:44,147 - rag_application - INFO - Processing query: how many times does the word AWS Batch are in the document? mention the exact count and the page num...
+2025-09-21 22:09:45,896 - rag_application - INFO - Query processed successfully in 1.75s
+2025-09-21 22:09:45,896 - rag_application - INFO - Query processed successfully in 1.75s
+2025-09-21 22:09:55,706 - rag_application - INFO - Processing query: count how many times does the word AWS Batch are in the document? mention the exact count and the pa...
+2025-09-21 22:09:55,707 - rag_application - INFO - Processing query: count how many times does the word AWS Batch are in the document? mention the exact count and the pa...
+2025-09-21 22:09:57,363 - rag_application - INFO - Query processed successfully in 1.66s
+2025-09-21 22:09:57,363 - rag_application - INFO - Query processed successfully in 1.66s
+2025-09-21 22:10:08,876 - rag_application - INFO - Processing query: what is AWS batch?...
+2025-09-21 22:10:08,877 - rag_application - INFO - Processing query: what is AWS batch?...
+2025-09-21 22:10:13,454 - rag_application - INFO - Query processed successfully in 4.58s
+2025-09-21 22:10:13,454 - rag_application - INFO - Query processed successfully in 4.58s
+2025-09-21 22:10:28,688 - rag_application - INFO - Processing query: what is AWS batch? include the references....
+2025-09-21 22:10:28,688 - rag_application - INFO - Processing query: what is AWS batch? include the references....
+2025-09-21 22:10:32,580 - rag_application - INFO - Query processed successfully in 3.89s
+2025-09-21 22:10:32,591 - rag_application - INFO - Query processed successfully in 3.89s
+2025-09-21 22:10:47,180 - rag_application - INFO - Processing query: what is AWS batch? include the references in this document....
+2025-09-21 22:10:47,180 - rag_application - INFO - Processing query: what is AWS batch? include the references in this document....
+2025-09-21 22:10:51,226 - rag_application - INFO - Query processed successfully in 4.05s
+2025-09-21 22:10:51,226 - rag_application - INFO - Query processed successfully in 4.05s
+2025-09-21 22:13:39,349 - rag_application - INFO - Starting document reprocessing
+2025-09-21 22:13:39,349 - rag_application - INFO - Starting document reprocessing
+2025-09-21 22:13:39,389 - rag_application - INFO - Converting PDF documents
+2025-09-21 22:23:19,708 - rag_application - WARNING - 404 error: http://127.0.0.1:5000/.well-known/appspecific/com.chrome.devtools.json
+2025-09-21 22:25:41,695 - rag_application - WARNING - 404 error: http://127.0.0.1:5000/.well-known/appspecific/com.chrome.devtools.json
+2025-09-21 23:47:53,799 - rag_application - INFO - Found 2 documents to process
+2025-09-21 23:47:53,802 - rag_application - INFO - Chunking documents with strategy: paragraph
+2025-09-21 23:47:53,833 - rag_application - INFO - Created 911 chunks from 2 documents
+2025-09-21 23:47:58,085 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 23:47:58,101 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 1

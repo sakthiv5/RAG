@@ -1,5 +1,5 @@
 {
-  "strategy": "semantic",
+  "strategy": "paragraph",
   "chunk_size": 800,
   "chunk_overlap": 100,
   "separators": [

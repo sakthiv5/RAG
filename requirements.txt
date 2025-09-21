@@ -21,6 +21,7 @@ Jinja2>=3.1.0  # Template engine (Flask dependency)
 click>=8.1.0  # CLI support (Flask dependency)
 itsdangerous>=2.1.0  # Security utilities (Flask dependency)
 MarkupSafe>=2.1.0  # Template security (Flask dependency)
+pymilvus>=2.6.2 # Milvus vector database client
 
 # Development and testing (optional)
 pytest>=7.4.0

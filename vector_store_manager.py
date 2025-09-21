@@ -210,7 +210,7 @@ class VectorStoreManager:
                 connection_args=self.connection_args,
                 collection_name=collection_name
             )
-            
+
             self._current_vectorstore = vectorstore
             self._current_collection = collection_name
             

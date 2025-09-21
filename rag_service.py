@@ -139,7 +139,7 @@ class RAGService:
             # Get vector store and create retriever with error handling
             vectorstore = safe_execute(
                 self.vector_store_manager.get_vectorstore,
-                self.embeddings,
+                "pdf_rag_docs",  # <-- FIX: pass collection name as string
                 default_return=None,
                 context="get_vectorstore"
             )
@@ -364,6 +364,7 @@ class RAGService:
             # Clear existing vector store with error handling
             clear_success = safe_execute(
                 self.vector_store_manager.clear_collection,
+                "pdf_rag_docs", 
                 default_return=False,
                 context="clear_vector_store"
             )
@@ -424,7 +425,7 @@ class RAGService:
             
             # Store in vector database with retry logic
             def store_with_retry():
-                return self.vector_store_manager.store_documents(chunks, self.embeddings)
+                return self.vector_store_manager.store_documents(chunks, "pdf_rag_docs")
             
             success = ErrorRecovery.retry_with_backoff(
                 store_with_retry,

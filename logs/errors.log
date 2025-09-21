@@ -28,3 +28,50 @@ Traceback: Traceback (most recent call last):
 RuntimeError: Reprocessing failed after retries
 
 Error count for this type: 2
+2025-09-21 21:15:15,590 - rag_application - ERROR - Error in clear_vector_store: TypeError: VectorStoreManager.clear_collection() missing 1 required positional argument: 'collection_name'
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\error_handler.py", line 250, in safe_execute
+    return func(*args, **kwargs)
+TypeError: VectorStoreManager.clear_collection() missing 1 required positional argument: 'collection_name'
+
+Error count for this type: 1
+2025-09-21 21:23:25,529 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 21:23:25,529 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 1
+2025-09-21 21:32:54,735 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 21:32:54,737 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 1
+2025-09-21 21:37:10,714 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 21:37:10,714 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 1
+2025-09-21 21:44:03,915 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 21:44:03,916 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 1
+2025-09-21 23:47:58,085 - rag_application - ERROR - Failed to store chunks in vector database
+2025-09-21 23:47:58,101 - rag_application - ERROR - Error in document_reprocessing: RuntimeError: Reprocessing failed after retries
+Traceback: Traceback (most recent call last):
+  File "C:\Users\Sakthi Nallathambi\project\RAG-project\app.py", line 275, in reprocess_documents
+    raise RuntimeError("Reprocessing failed after retries")
+RuntimeError: Reprocessing failed after retries
+
+Error count for this type: 1
